@@ -168,7 +168,9 @@ public class Arrays {
 
         }*/
 
-        public static void subArrays(int numbers[]){
+        /*Subarrays */
+        /*public static void subArrays(int numbers[]){
+            int ts=0;
 
             //to calculate start
             for(int i=0;i<numbers.length;i++){
@@ -181,11 +183,14 @@ public class Arrays {
                     for(int k=start;k<=end;k++){
                         System.out.print(numbers[k]+" ");
                     }
+                    ts++;
                     System.out.println();
                 }
                 System.out.println();
 
             }
+            System.out.println("total no of sub arrays: "+ts);
+            
 
         }
 
@@ -194,7 +199,149 @@ public class Arrays {
             int numbers[]={2,4,6,8,10};
             subArrays(numbers);
 
+        }*/
+
+        /*MAx sum of sub array */
+        /*public static void MaxSumSUbArray(int numbers[]){
+            int currSum=0;
+            int maxSum=Integer.MIN_VALUE;
+
+            //to calculate start
+            for(int i=0;i<numbers.length;i++){
+                int start=i;
+                //to calculate end
+                for(int j=i;j<numbers.length;j++){
+                    int end=j;
+                    currSum=0;
+
+                    //to print subarray
+                    for(int k=start;k<=end;k++){
+                        currSum+=numbers[k];
+                    }
+
+                    System.out.println(currSum);
+                    
+                    if (maxSum<currSum){
+                        maxSum=currSum;
+
+                    }
+                    
+                }
+                //System.out.println();
+
+            }
+            System.out.println("Max sum of Sub Array: "+maxSum);
+            
+
         }
 
+
+        public static void main(String []args){
+            int numbers[]={2,4,6,8,10};
+            MaxSumSUbArray(numbers);
+
+        }*/
+
+        //Max Sum Sub Array using prefix
+
+        /*public static void SumSubArray(int numbers[]){
+            int currSum=0;
+            int maxSum=Integer.MAX_VALUE;
+            int prefix[]=new int[numbers.length];
+
+            prefix[0]=numbers[0];
+            //calculate prefix array
+            for(int i=1;i<prefix.length;i++){
+                prefix[i]=prefix[i-1]+numbers[i];
+            }
+
+            for(int i=0;i<numbers.length;i++){
+                int start=i;
+                for(int j=i;j<numbers.length;j++){
+                    int end=j;
+                    currSum=start==0? prefix[end]: prefix[end]-prefix[start-1];
+                    if (maxSum<currSum){
+                        maxSum=currSum;
+
+                    }
+
+                }
+                System.out.println();
+                 
+            }
+            System.out.println("Max sum of Sub Array: "+maxSum);
+
+        }
+
+        public static void main(String [] args){
+            int numbers[]={10,23,-2,34,-2};
+            SumSubArray(numbers);
+
+        }*/
+
+        //buy sell stock price
+
+        /*public static int BuySellStock(int prices[]){
+
+            int buyPrice=Integer.MAX_VALUE;
+            int maxProfit=0;
+
+            for(int i=0;i<prices.length;i++){
+
+                if(buyPrice<prices[i]){
+                    int Profit=prices[i]-buyPrice;
+                    maxProfit=Math.max(maxProfit,Profit);
+                }else{
+                    buyPrice=prices[i];
+                }
+                
+            }
+            return maxProfit;
+        }
+
+        public static void main(String [] args){
+            int prices[]={1,2,4,5,7};
+            System.out.println(BuySellStock(prices));
+        }*/
+
+        //return true if any no in array appears atleast 2 times
+        /*public static boolean duplicateChecker(int number[]){
+
+            for(int i=0;i<number.length-1;i++){
+                for(int j=i+1;j<number.length;j++){
+                    if(number[i]==number[j]){
+                        return true;
+                    }
+                }
+            }
+            return false;
+
+        }
+        public static void main(String[] args){
+            int number[]={10,12,10,10,12,30,45,45,70};
+            System.out.println(duplicateChecker(number));
+
+        }*/
+
+        //obtain maximum profit from an array for prices
+        public static int maxProfit(int prices[]){
+            int buy=prices[0];
+            int profit=0;
+            for(int i=0;i<prices.length;i++){
+                if(buy<prices[i]){
+                    profit=Math.max(prices[i]-buy,profit);
+
+                }else{
+                    buy=prices[i];
+                }
+                
+            }
+            return profit;
+
+        }
+        public static void main(String [] args){
+            int prices[]={7, 1, 5, 3, 6,  4};
+            System.out.println(maxProfit(prices));
+        }
     }
 
