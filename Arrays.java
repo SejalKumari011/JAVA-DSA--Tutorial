@@ -324,7 +324,8 @@ public class Arrays {
         }*/
 
         //obtain maximum profit from an array for prices
-        public static int maxProfit(int prices[]){
+
+        /*public static int maxProfit(int prices[]){
             int buy=prices[0];
             int profit=0;
             for(int i=0;i<prices.length;i++){
@@ -342,6 +343,82 @@ public class Arrays {
         public static void main(String [] args){
             int prices[]={7, 1, 5, 3, 6,  4};
             System.out.println(maxProfit(prices));
+        }*/
+
+        //Print the number of 7’s that are inthe 2d array
+
+        /*public static int findSeven(int arr[][], int key){
+            int counter =0;
+
+            for(int i=0;i<arr.length;i++){
+                for(int j=0;j<arr[0].length;j++){
+                    if(arr[i][j]==key){
+                        counter++;
+                    }
+                }
+            }
+            return counter;
+        }
+
+        public static void main(String[] args){
+            int arr[][]={
+                {4,7,8},
+                {8,8,7}
+            };
+
+            System.out.println(findSeven(arr,7));
+
+        }*/
+
+        //print sum of numbers in 2nd row
+
+        /*public static int sumNum(int arr[][]){
+            int sum=0;
+            
+                for(int j=0;j<arr[0].length;j++){
+                    sum+=arr[1][j];
+                }
+            
+            return sum;
+        }
+        public static void main(String[] args){
+            int arr[][]={
+                {1,4,9},
+                {11,4,3},
+                {2,2,3}
+            };
+            System.out.print(sumNum(arr));
+        }*/
+
+      
+        public static void main(String args[]){
+            int row=2, col=3;
+            int arr[][]={
+                {1,2,3},
+                {4,5,6}
+            };
+             
+             
+            int transpose[][]=new int[col][row];
+
+            
+
+            for(int i=0;i<row;i++){
+                for(int j=0;j<col;j++){
+                    transpose[j][i]=arr[i][j];
+
+                }
+            }
+            printMatrix(transpose);
+        }
+    
+    
+        public static void printMatrix(int arr[][]){
+            for(int i=0;i<arr.length;i++){
+                for(int j=0;j<arr[0].length;j++){
+                    System.out.print(arr[i][j]+" ");
+                }
+            }
         }
     }
 
