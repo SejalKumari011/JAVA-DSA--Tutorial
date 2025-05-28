@@ -46,12 +46,29 @@ public class BitManipulation {
     int bitMask=~(1<<i);
     return n&bitMask;
   }
+
+  //update ith bit
+  public static int updatebit(int n, int i,int newBit){
+    if(newBit==0){
+        return ClearBit(n,i);
+    }else{
+        return SetBit(n,i);
+    }
+  }
+
+  //power of 2
+  public static boolean isPowerOfTwo(int n){
+    return (n&(n-1))==0;
+
+  }
 public static void main(String [] args){
         //BitWiseOperator();
         //int n=100;
         //evenOrOdd(n);
         //System.out.println(GetBit(10,2));
         //System.out.println(SetBit(10,2));
-        System.out.println(ClearBit(10,1));
+        //System.out.println(ClearBit(10,1));
+        //System.out.println(updatebit(10,2,1));
+        System.out.println(isPowerOfTwo(8));
     }   
 }
