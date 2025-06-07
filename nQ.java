@@ -23,21 +23,27 @@ return false;
 return true;
 }
 
-public static void nQueen(char board[][], int row){
+public static boolean nQueen(char board[][], int row){
     //base case
     if(row==board.length){
         printBoard(board);
-        return ;
+        count++;
+        return true;
     }
 
 for(int j=0;j<board.length;j++){
 if(isSafe(board,row,j)){
 board[row][j]='Q';
-nQueen(board,row+1);
+if(nQueen(board,row+1)){
+    return true;
+}
 board[row][j]='X';
 }
 }
+return false; 
 }
+
+
 
 public static void printBoard(char board[][]){
     System.out.println("_______chess board__________");
@@ -48,9 +54,10 @@ System.out.print(board[i][j]);
 System.out.println();
 }
 }
+static int count=0;
 
 public static void main(String[] args){
-int n=4;
+int n=2;
 char board[][]=new char[n][n];
 
 for(int i=0;i<board.length;i++){
@@ -58,7 +65,13 @@ for(int j=0;j<board.length;j++){
 board[i][j]='X';
 
 }}
-nQueen(board,0);
+if(nQueen(board,0)){
+    System.out.println("Solution is possible.");
+   // printBoard(board);
+}else{
+    System.out.println("Solution is not possible. ");
+}
+//System.out.println("Total ways to Place N queens: "+count);
 }
 }
 
