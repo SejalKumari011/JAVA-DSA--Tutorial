@@ -60,7 +60,7 @@ public class DivideConquer {
     }*/
 
     //quick sort
-    public static void QuickSort(int arr[], int si, int ei){
+    /*public static void QuickSort(int arr[], int si, int ei){
 
         if(si>=ei){
             return;
@@ -94,14 +94,57 @@ public class DivideConquer {
                 arr[ei]=arr[i]; //pivot==arr[i]
                 arr[i]=temp;
                 return i;
+    }*/
+
+    //search in rotated and sorted array
+    public static int search(int arr[], int tar,int si, int ei){
+        //base case
+
+        if(si>ei){
+            return -1;
+        }
+
+        //mid
+        int mid=si+(ei-si)/2;
+
+        //case found at mid
+        if(arr[mid]==tar){
+            return mid;
+        }
+
+        if(arr[si]<=arr[mid]){
+            //case a: left
+            if(arr[si]<=tar && tar<=arr[mid]){
+                return search(arr,tar,si,mid-1);
+
+        }else{
+            return search(arr,tar,mid+1,ei);
+
+        }
+    } else{
+            if(arr[mid]<=tar && tar<=arr[ei]){
+                return search(arr,tar,mid+1,ei);
+
+            }else{
+                return search(arr,tar,si,mid-1);
+            }
+
+        }
     }
 
     public static void main(String[] args){
-        int arr[]={6,3,9,5,2,8};
+        //int arr[]={6,3,9,5,2,8};
         //mergeSort(arr, 0, arr.length-1);
-        QuickSort(arr, 0, arr.length-1);
-        printArr(arr);
+        //QuickSort(arr, 0, arr.length-1);
 
+        int arr[] = {4, 5, 6, 7, 0, 1, 2}; // Example of rotated sorted array
+        int target = 0;
+
+        int index = search(arr, target, 0, arr.length - 1);
+        System.out.println("Target " + target + " found at index: " + index);
+
+        printArr(arr);
     }
     
 }
+
