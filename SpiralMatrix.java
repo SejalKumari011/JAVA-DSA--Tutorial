@@ -18,7 +18,7 @@ public class SpiralMatrix {
         for(int i=startRow+1;i<=endRow;i++){
              if(startCol==endCol){
                 break;
-            }
+            }  
             System.out.print(arr[i][endCol]+" ");
         }
 
@@ -53,7 +53,7 @@ public class SpiralMatrix {
     public static void main(String [] args){
         int arr[][]={
             {1,2,3,4},
-            {5,6,7,8},
+            {5,6,7,8}, 
             {9,10,11,12},
             {13,14,15,16}
         };
