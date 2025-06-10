@@ -2,7 +2,8 @@ import java.util.*;
 public class WaterContainer {
 
     public static int waterContainer(ArrayList<Integer>height){
-        int maxWater=0;
+        //Brute force
+        /*int maxWater=0;
 
         for(int i=0;i<height.size();i++){
             for(int j=i+1;j<height.size();j++){
@@ -14,6 +15,27 @@ public class WaterContainer {
                     maxWater=waterStored;
 
                 }
+            }
+        }
+        return maxWater;*/
+
+        //2 pointer tech
+
+        int maxWater=0;
+        int lp=0,rp=height.size()-1;
+        while(lp<rp){
+
+            //calculate
+            int ht=Math.min(height.get(lp),height.get(rp));
+            int width=rp-lp;
+            int waterStored=ht*width;
+            maxWater=Math.max(maxWater,waterStored);
+
+            //update
+            if(height.get(lp)<height.get(rp)){
+                lp++;
+            }else{
+                rp--;
             }
         }
         return maxWater;
