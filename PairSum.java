@@ -15,7 +15,7 @@ public class PairSum {
         return false;*/
 
         //2 pointer
-        int lp=0,rp=arr.size()-1;
+        /*int lp=0,rp=arr.size()-1;
 
         while(lp!=rp){
             //calculate
@@ -28,18 +28,42 @@ public class PairSum {
             }
            
         }
-         return false;
+         return false;*/
+
+        //2 pointer for sorted and rotated array
+        int n=arr.size()-1;
+        int bp=-1;
+        for(int i=0;i<arr.size()-1;i++){
+            if(arr.get(i)>arr.get(i+1)){
+                bp=i;
+            }
+        }
+        int lp=bp+1;
+        int rp=lp;
+        while(lp!=rp){
+
+            if(arr.get(lp)+arr.get(rp)==target){
+                return true;
+
+            }else if(arr.get(lp)+arr.get(rp)<target){
+                lp=(lp+1)%n;
+            }else{
+                rp=(n+rp-1)%n;
+            }
+            }
+            return false;
         
     }
 
     public static void main(String[] args){
         ArrayList<Integer>arr=new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(3);
-        arr.add(4);
-        arr.add(5);
-        System.out.println(pairSum(arr,10));
+        arr.add(11);
+        arr.add(15);
+        arr.add(6);
+        arr.add(8);
+        arr.add(9);
+        arr.add(10);
+        System.out.println(pairSum(arr,14));
     }
     
 }
