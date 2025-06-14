@@ -1,1 +1,1 @@
-arr
+L1.print();
