@@ -118,8 +118,6 @@ public class DoubleLL {
         head=prev;
     }
 
-    
-
 
         public static void main(String [] args){
             DoubleLL dll= new DoubleLL();
@@ -131,11 +129,14 @@ public class DoubleLL {
             dll.print();
             System.out.println(dll.size);
 
+            dll.addAtStart(0);
+            dll.print();
+
             // dll.removeLast();
             // dll.print();
 
-            dll.reverse();
-            dll.print();
+            // dll.reverse();
+            // dll.print();
             
 
             // dll.removeFirst();
