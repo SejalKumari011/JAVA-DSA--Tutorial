@@ -1,78 +1,77 @@
 public class Queue {
 
+    static class Node{
+        int data;
+        Node  next;
+
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+
+
     static class queue{
-         static int arr[];
-         static int size;
-         static int rear;
-         static int front;
+          int arr[];
+          int size;
+         int rear;
+         int front;
 
-         queue(int n){
-            arr=new int[n];
-            size=n;
-            rear=-1;
-            front=-1;
+        static Node head=null;
+        static Node tail=null;
+
+         public  boolean isEmpty(){
+            return head==null && tail==null;
          }
 
-         public static boolean isEmpty(){
-            return rear==-1 && front==-1;
-         }
-
-         public static boolean isFull(){
-            return (rear+1)%size==front;
-         }
-
+        
          //add
-         public static void add(int data){
+         public void add(int data){
 
-            if(isFull()){
-                System.out.println("Queue is Full");
-                return;
+            Node newnode=new Node(data);
+
+            if(head==null){
+                head=tail=null;
+                return;  
             }
-
-
-            if(front==-1){
-                front=0;
-            }
-            rear=(rear+1)%size;
-            arr[rear]=data;
+            tail.next=newnode;
+            tail=newnode;
 
          }
 
          //remove
 
-         public static int remove(){
+         public  int remove(){
 
             if(isEmpty()){
                 System.out.println("Queue is empty");
                 return -1;
             }
 
-            int result=arr[front];
-            
-
+            int front=head.data;
             //last element delete
-            if(rear==front){
-                rear=front=-1;
+            if(tail==head){
+                head=tail=null;
             }else{
-                front=(front+1)%size;
+                head=head.next;
             }
-            return result ;
+            return front;
          }
 
          //peek
-         public static int peek(){
+         public  int peek(){
             if(isEmpty()){
                 System.out.println("Queue is empty");
                 return -1;
             }
-            return arr[front];
+            return head.data;
 
          }
 
     }
 
     public static void main(String [] args){
-        queue q=new queue(3);
+        queue q=new queue();
         q.add(1);
         q.add(2);
         q.add(3);
