@@ -1,2 +1,1 @@
-deque.removeFirst();
-        System.out.println(deque);
+ q.add(s.pop());
