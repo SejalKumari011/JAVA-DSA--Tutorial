@@ -16,7 +16,7 @@ public class AcitvitySelection2 {
         }
 
         //lamba func
-        Arrays.sort(activities, Comparator.comparingDouble(o->o[2]));
+        Arrays.sort(activities, Comparator.comparingInt(o->o[2]));
 
         int maxAct=0;
         ArrayList<Integer> ans=new ArrayList<>();
@@ -25,7 +25,7 @@ public class AcitvitySelection2 {
         ans.add(activities[0][0]);
         int lastEnd=activities[0][2];
 
-        for(int i=0;i<end.length;i++){
+        for(int i=1;i<end.length;i++){
             if(activities[i][1]>=lastEnd){
                 maxAct++;
                 ans.add(activities[i][0]);
