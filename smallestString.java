@@ -12,7 +12,6 @@ public class smallestString {
         }
         return new String(result);
     }
-
     public static void main(String [] args){
         int N=5, K=42;
         System.out.println(smallestStringofN(N, K));
