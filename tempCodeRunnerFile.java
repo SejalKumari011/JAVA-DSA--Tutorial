@@ -1,1 +1,1 @@
- q.add(s.pop());
+root
