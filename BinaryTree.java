@@ -14,7 +14,6 @@ public class BinaryTree {
             this.right=null;
         }
     }
-
         static class binaryTree{
             static int idx=-1;
             public static Node buildBT(int nodes[]){
@@ -39,7 +38,7 @@ public class BinaryTree {
                 preorder(root.right);
 
             }
-
+            
             public static void inorder(Node root){
                 if(root==null){
                     return;
