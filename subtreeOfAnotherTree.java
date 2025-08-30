@@ -43,7 +43,6 @@ public class subtreeOfAnotherTree {
         boolean rightans=isSubtree(root.right, subRoot);
 
         return leftans || rightans;
-
     }
 
     public static void main(String [] args){
