@@ -1,7 +1,5 @@
 public class buySellStock {
-
-
-    public static int buySell(int prices[]){
+public static int buySell(int prices[]){
         int maxProfit=0;
         int bestBuy=prices[0];
 
@@ -9,7 +7,6 @@ public class buySellStock {
             if(prices[i]>bestBuy){
                 maxProfit=Math.max(maxProfit, prices[i]-bestBuy);
             }
-
             bestBuy=Math.min(bestBuy, prices[i]);
         }
         return maxProfit;
